@@ -1,11 +1,17 @@
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
-// define a default route
 FlowRouter.route('/', {
   name: 'home',
   action() {
     BlazeLayout.render('mainLayout', { main: 'home' });
+  },
+});
+
+FlowRouter.route('/add-game', {
+  name: 'addGame',
+  action() {
+    BlazeLayout.render('mainLayout', { main: 'addGame' });
   },
 });
 
