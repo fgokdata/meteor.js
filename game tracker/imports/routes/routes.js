@@ -8,10 +8,17 @@ FlowRouter.route('/', {
   },
 });
 
-FlowRouter.route('/add-game', {
+FlowRouter.route('/add-game/:id?', {
   name: 'addGame',
   action() {
     BlazeLayout.render('mainLayout', { main: 'addGame' });
+  },
+});
+
+FlowRouter.route('/games-list', {
+  name: 'gamesList',
+  action() {
+    BlazeLayout.render('mainLayout', { main: 'gamesList' });
   },
 });
 
