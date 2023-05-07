@@ -1,4 +1,5 @@
 import './add-game.html';
+import '../../../../public/stylesheets/add-game.css';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 Template.addGame.events({
