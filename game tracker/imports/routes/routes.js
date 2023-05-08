@@ -4,7 +4,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 FlowRouter.route('/', {
   name: 'home',
   action() {
-    BlazeLayout.render('mainLayout', { main: 'home' });
+    BlazeLayout.render('homeLayout', { main: 'home' });
   },
 });
 

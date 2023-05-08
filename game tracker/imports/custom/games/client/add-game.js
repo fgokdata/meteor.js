@@ -1,6 +1,28 @@
 import './add-game.html';
 import '../../../../public/stylesheets/add-game.css';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
+import { Games } from '../../../startup/lib/collection';
+
+Template.addGame.onCreated(function() {
+    const self = this;
+    self.game = new ReactiveVar(null);
+    if(FlowRouter.getParam('id')) {
+        Meteor.subscribe('getGameById', FlowRouter.getParam('id'), {
+            onReady() {
+                const game = Games.findOne({ _id: FlowRouter.getParam('id') });
+                if(game) {
+                    self.game.set(game);
+                }
+            }
+        });
+    }
+})
+
+Template.addGame.helpers({
+    getGame() {
+        return Template.instance().game.get()
+    }
+})
 
 Template.addGame.events({
     'submit #add-game-form': (event) => {
@@ -21,15 +43,14 @@ Template.addGame.events({
         sessions: []
       }
   
-      Meteor.call('addGame', data, (err, result) => {
+      Meteor.call('addGame',data, FlowRouter.getParam('id'), (err, result) => {
         if(err) {
             alert(err.reason);
         } else {
-            alert('Game added successfully!');
+            alert(`Game ${FlowRouter.getParam('id') ? 'updated' : 'added'} successfully!`);
             FlowRouter.go('gamesList');
         }
       })
-  
     }
   });
   

@@ -1,18 +1,20 @@
 <template name="addGame">
     <div class="add-game-container">
         <div class="glass-container">
-            <h2>Add Game</h2>
-            <form id="add-game-form">
-              <div class="form-group">
-                <label for="game-name">Name</label>
-                <input type="text" class="form-control" id="game-name" placeholder="Enter game name" required>
-              </div>
-              <div class="form-group">
-                <label for="game-photo">Photo URL</label>
-                <input type="url" class="form-control" id="game-photo" placeholder="Enter photo URL" required>
-              </div>
-              <button type="submit" class="tracker-btn">Add Game</button>
-            </form>
+            {{#let game = getGame}}
+            <h2>{{#if game}}Edit{{else}}Add{{/if}} Game</h2>
+                <form id="add-game-form">
+                <div class="form-group">
+                    <label for="game-name">Name</label>
+                    <input type="text" class="form-control" id="game-name" placeholder="Enter game name" value="{{game.name}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="game-photo">Photo URL</label>
+                    <input type="url" class="form-control" id="game-photo" placeholder="Enter photo URL" value="{{game.photoUrl}}" required>
+                </div>
+                <button type="submit" class="tracker-btn">{{#if game}}Edit{{else}}Add{{/if}} Game</button>
+                </form>
+            {{/let}}
         </div>
     </div>
 </template>

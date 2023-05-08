@@ -1,5 +1,16 @@
-<template name="mainLayout">  
+<template name="homeLayout">  
     <main>
       {{> Template.dynamic template=main}}
     </main>
+</template>
+
+<template name="mainLayout">  
+  <header>
+    <nav>
+      <a href="{{urlFor 'home'}}" class="header-brand">Game Tracker</a>
+    </nav>
+  </header>
+  <main class="main-layout">
+    {{> Template.dynamic template=main}}
+  </main>
 </template>
