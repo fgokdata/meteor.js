@@ -58,12 +58,18 @@
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
+    overflow: auto;
+    display: flex;
 }
 
 .modalDialog > div {
     width: 400px;
     position: relative;
-    margin: 10% auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
     padding: 20px;
     border-radius: 10px;
 }

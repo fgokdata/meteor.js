@@ -30,17 +30,18 @@ form label {
     display: block;
     line-height: 25px;
     font-size: 14px;
-    color: #151515;
+    color: #fff;
+    letter-spacing: 1px;
 }
 
-form input {
+form :is(input, select) {
     width: 100%;
     border-radius: 5px;
     border: none;
     padding: 8px;
 }
 
-form input:focus {
+form :is(input, select):focus {
     outline: none;
 }
 

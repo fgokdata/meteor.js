@@ -30,7 +30,29 @@
                 <a href="#" title="Close" class="close-modal">&times;</a>
             </div>	
             <div class="modal-body">
-                <!-- Add Session form here -->
+                <form id="add-session-form">
+                    <div class="form-group">
+                        <label for="session-date">Date</label>
+                        <input type="date" class="form-control" name="session-date" id="session-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="session-players">No. of players</label>
+                        <input type="number" class="form-control" name="session-players" id="session-players" placeholder="No. of players" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="session-duration">Duration</label>
+                        <input type="number" class="form-control" name="session-duration" id="session-duration" placeholder="Duration" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="session-outcome">Outcome</label>
+                        <select name="session-outcome" id="session-outcome">
+                            <option value="No Outcome">No Outcome</option>
+                            <option value="Win">Win</option>
+                            <option value="Lost">Lost</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="tracker-btn">Submit Session</button>
+                </form>
             </div>
         </div>
     </div>
