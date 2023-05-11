@@ -27,6 +27,12 @@
     margin-top: 10px;
 }
 
+.games-list .game-card .games-played {
+    color: #000000;
+    font-size: .8em;
+    font-weight: 700;
+}
+
 .games-list .game-card .card-btns {
     display: flex;
     gap: 10px;
@@ -43,6 +49,7 @@
     height: 170px;
     object-fit: cover;
 }
+
 
 /* Modal */
 

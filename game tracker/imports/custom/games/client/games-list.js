@@ -11,6 +11,9 @@ Template.gamesList.onCreated(function(){
 Template.gamesList.helpers({
     gamesList() {
         return Games.find().fetch();
+    },
+    gamesPlayed(sessions) {
+        return sessions?.length;
     }
 })
 
