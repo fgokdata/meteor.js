@@ -33,6 +33,12 @@
     font-weight: 700;
 }
 
+.games-list .game-card .win-rate {
+    color: #fff;
+    font-size: .8em;
+    font-weight: 600;
+}
+
 .games-list .game-card .card-btns {
     display: flex;
     gap: 10px;

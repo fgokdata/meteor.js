@@ -4,7 +4,7 @@ import '../../../../public/stylesheets/games-list.css';
 
 let modalTemplateInst = null;
 
-Template.gamesList.onCreated(function(){
+Template.gamesList.onCreated(function () {
     Meteor.subscribe('getGamesList')
 })
 
@@ -14,7 +14,39 @@ Template.gamesList.helpers({
     },
     gamesPlayed(sessions) {
         return sessions?.length;
-    }
+    },
+    winRate(sessions) {
+        let color = 'gray'
+        if (sessions?.length) {
+            let wins = 0;
+            for (let i = 0; i < sessions.length; i++) {
+                if (sessions[i].outcome === 'Win') {
+                    wins++;
+                }
+            }
+            const rate = Math.round((wins / sessions.length) * 100);
+            if (rate) {
+                if (rate >= 76) {
+                    color = 'green';
+                } else if (rate >= 51) {
+                    color = 'yellow';
+                } else if (rate >= 26) {
+                    color = 'orange';
+                } else {
+                    color = 'red';
+                }
+            }
+            return {
+                rate: `${rate}%`,
+                color
+            }
+        } else {
+            return {
+                rate: 'N/A',
+                color
+            }
+        }
+    },
 })
 
 Template.gamesList.events({
@@ -26,7 +58,7 @@ Template.gamesList.events({
 Template.sessionModal.events({
     'click .close-modal'(event, template) {
         event.preventDefault();
-        if(modalTemplateInst) {
+        if (modalTemplateInst) {
             Blaze.remove(modalTemplateInst);
             modalTemplateInst = null;
         }
@@ -39,34 +71,34 @@ Template.sessionModal.events({
         const duration = $('#session-duration').val()
         const outcome = $('#session-outcome').val()?.trim()
 
-        if(!gameId) {
-          alert('Please provide game id!');
-          return;
+        if (!gameId) {
+            alert('Please provide game id!');
+            return;
         }
-    
+
         // Validate form fields
         if (!date || !players || !duration || !outcome) {
-          alert('Please fill out all fields!');
-          return;
+            alert('Please fill out all fields!');
+            return;
         }
-  
+
         const data = {
-          date,
-          players,
-          duration,
-          outcome
+            date,
+            players,
+            duration,
+            outcome
         }
-    
-        Meteor.call('addGameSession',data, gameId, (err, result) => {
-          if(err) {
-              alert(err.reason);
-          } else {
-              if(modalTemplateInst) {
-                Blaze.remove(modalTemplateInst);
-                modalTemplateInst = null;
-              }
-              alert('Session successfully!');
-          }
+
+        Meteor.call('addGameSession', data, gameId, (err, result) => {
+            if (err) {
+                alert(err.reason);
+            } else {
+                if (modalTemplateInst) {
+                    Blaze.remove(modalTemplateInst);
+                    modalTemplateInst = null;
+                }
+                alert('Session successfully!');
+            }
         })
-      }
+    }
 })

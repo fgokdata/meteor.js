@@ -12,6 +12,9 @@
                         <h3 class="game-name">{{game.name}}</h3>
                     </a>
                     <p class="games-played">{{gamesPlayed game.sessions}} Games Played</p>
+                    {{#let rate = (winRate game.sessions) }}
+                        <p class="win-rate">Win rate: <span style="color: {{rate.color}};">{{rate.rate}}</span></p>
+                    {{/let}}
                     <div class="card-btns">
                         <button class="add-game-session-btn tracker-btn" data-id="{{game._id}}">New Session</button>
                         <button class="delete-game-btn tracker-btn danger" data-id="{{game._id}}">Delete</button>
