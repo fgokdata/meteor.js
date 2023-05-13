@@ -1,7 +1,7 @@
 <template name="addGame">
+    {{#let game = getGame}}
     <div class="add-game-container">
         <div class="glass-container">
-            {{#let game = getGame}}
             <h2>{{#if game}}Edit{{else}}Add{{/if}} Game</h2>
                 <form id="add-game-form">
                 <div class="form-group">
@@ -14,7 +14,36 @@
                 </div>
                 <button type="submit" class="tracker-btn">{{#if game}}Edit{{else}}Add{{/if}} Game</button>
                 </form>
-            {{/let}}
+            </div>
+            {{#if game}}
+            <div class="glass-container">
+            <h2>Last 5 Sessions</h2>
+            <table class="sessions-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Duration</th>
+                        <th>Outcome</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each (limitArray game.sessions) }}
+                        <tr>
+                            <td>{{date}}</td>
+                            <td>{{duration}} Minutes</td>
+                            <td>{{outcome}}</td>
+                            <td><button class="tracker-btn danger">Delete</button></td>
+                        </tr>
+                    {{else}}
+                        <tr>
+                            <td colspan="4"><h3 class="no-session">No Sessions added yet!</h3></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
+        {{/if}}
     </div>
+    {{/let}}
 </template>

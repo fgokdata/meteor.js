@@ -21,6 +21,9 @@ Template.addGame.onCreated(function() {
 Template.addGame.helpers({
     getGame() {
         return Template.instance().game.get()
+    },
+    limitArray(arr) {
+        return arr.slice(0,5);
     }
 })
 
