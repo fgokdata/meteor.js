@@ -14,5 +14,18 @@ Meteor.methods({
         } catch(err) {
             throw new Meteor.Error(err.error, err.reason || err.message)
         }
+    },
+    removeGameSession(gameId, sessionIndex) {
+        try {
+            const game = Games.findOne({_id: gameId});
+            if(!game){
+                throw new Meteor.Error(404, 'Game not found!')
+            }
+            const sessions = game.sessions;
+            sessions.splice(sessionIndex, 1);
+            return Games.update({_id: gameId}, { $set: { sessions } });
+        } catch(err) {
+            throw new Meteor.Error(err.error, err.reason || err.message)
+        }
     }
 })

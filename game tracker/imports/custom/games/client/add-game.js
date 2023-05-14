@@ -4,23 +4,14 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { Games } from '../../../startup/lib/collection';
 
 Template.addGame.onCreated(function() {
-    const self = this;
-    self.game = new ReactiveVar(null);
     if(FlowRouter.getParam('id')) {
-        Meteor.subscribe('getGameById', FlowRouter.getParam('id'), {
-            onReady() {
-                const game = Games.findOne({ _id: FlowRouter.getParam('id') });
-                if(game) {
-                    self.game.set(game);
-                }
-            }
-        });
+        Meteor.subscribe('getGameById', FlowRouter.getParam('id'));
     }
 })
 
 Template.addGame.helpers({
     getGame() {
-        return Template.instance().game.get()
+        return Games.findOne({ _id: FlowRouter.getParam('id') })
     },
     limitArray(arr) {
         return arr.slice(0,5);
@@ -54,6 +45,17 @@ Template.addGame.events({
             FlowRouter.go('gamesList');
         }
       })
+    },
+    'click .delete-session'(event, template) {
+        event.preventDefault();
+        const index = $(event.currentTarget).attr('data-index');
+        Meteor.call('removeGameSession', FlowRouter.getParam('id'), index, (err, result) => {
+            if(err) {
+                alert(err.reason);
+            } else {
+                alert('Session deleted successfully!');
+            }
+        })
     }
   });
   
