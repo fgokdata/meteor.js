@@ -27,5 +27,12 @@ Meteor.methods({
         } catch(err) {
             throw new Meteor.Error(err.error, err.reason || err.message)
         }
-    }
+    },
+    removeGame(id) {
+        try {
+            return Games.remove({_id: id});
+        } catch(err) {
+            throw new Meteor.Error(err.error, err.reason || err.message)
+        }
+    },
 })

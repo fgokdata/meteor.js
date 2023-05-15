@@ -53,6 +53,17 @@ Template.gamesList.events({
     'click .add-game-session-btn'(event, template) {
         modalTemplateInst = Blaze.renderWithData(Template.sessionModal, { id: $(event.currentTarget).attr('data-id') }, document.getElementById('modal-parent'));
     },
+    'click .delete-game-btn'(event, template) {
+        event.preventDefault();
+        const gameId = $(event.currentTarget).attr('data-id');
+        Meteor.call('removeGame', gameId, (err, result) => {
+            if (err) {
+                alert(err.reason);
+            } else {
+                alert('Game removed successfully!');
+            }
+        })
+    }
 })
 
 Template.sessionModal.events({
