@@ -56,6 +56,12 @@
     object-fit: cover;
 }
 
+.no-game {
+    margin: 20px auto;
+    color: #fff;
+    text-align: center;
+}
+
 
 /* Modal */
 
