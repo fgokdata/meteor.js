@@ -5,12 +5,12 @@ import '../../../../public/stylesheets/games-list.css';
 let modalTemplateInst = null;
 
 Template.gamesList.onCreated(function () {
-    Meteor.subscribe('getGamesList')
+    Meteor.subscribe('getGamesList', { userId: Meteor.userId() })
 })
 
 Template.gamesList.helpers({
     gamesList() {
-        return Games.find().fetch();
+        return Games.find({ userId: Meteor.userId() }).fetch();
     },
     gamesPlayed(sessions) {
         return sessions?.length;

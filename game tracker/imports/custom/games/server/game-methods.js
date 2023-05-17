@@ -1,38 +1,53 @@
 import { Games } from "../../../startup/lib/collection"
 
 Meteor.methods({
-    addGame(data, id) {
+    addGame(data) {
         try {
-            return Games.upsert({_id: id}, data);
-        } catch(err) {
-            throw new Meteor.Error(err.error, err.reason || err.message)
+            if (!Meteor.userId()) {
+                throw new Meteor.Error("not-authorized", "You must be logged in to add a game");
+            }
+            data.userId = Meteor.userId();
+            return Games.insert(data);
+        } catch (err) {
+            throw new Meteor.Error(err.error, err.reason || err.message);
         }
     },
-    addGameSession(data, id) {
+    addGameSession(data, gameId) {
         try {
-            return Games.update({_id: id}, { $push: { sessions: data } });
-        } catch(err) {
-            throw new Meteor.Error(err.error, err.reason || err.message)
+            const game = Games.findOne({ _id: gameId, userId: Meteor.userId() });
+            if (!game) {
+                throw new Meteor.Error(404, "Game not found");
+            }
+
+            return Games.update({ _id: gameId }, { $push: { sessions: data } });
+        } catch (err) {
+            throw new Meteor.Error(err.error, err.reason || err.message);
         }
     },
     removeGameSession(gameId, sessionIndex) {
         try {
-            const game = Games.findOne({_id: gameId});
-            if(!game){
-                throw new Meteor.Error(404, 'Game not found!')
+            const game = Games.findOne({ _id: gameId, userId: Meteor.userId() });
+            if (!game) {
+                throw new Meteor.Error(404, "Game not found");
             }
+
             const sessions = game.sessions;
             sessions.splice(sessionIndex, 1);
-            return Games.update({_id: gameId}, { $set: { sessions } });
-        } catch(err) {
-            throw new Meteor.Error(err.error, err.reason || err.message)
+            return Games.update({ _id: gameId }, { $set: { sessions } });
+        } catch (err) {
+            throw new Meteor.Error(err.error, err.reason || err.message);
         }
     },
-    removeGame(id) {
+    removeGame(gameId) {
         try {
-            return Games.remove({_id: id});
-        } catch(err) {
-            throw new Meteor.Error(err.error, err.reason || err.message)
+            const game = Games.findOne({ _id: gameId, userId: Meteor.userId() });
+            if (!game) {
+                throw new Meteor.Error(404, "Game not found");
+            }
+
+            return Games.remove({ _id: gameId });
+        } catch (err) {
+            throw new Meteor.Error(err.error, err.reason || err.message);
         }
     },
-})
+});

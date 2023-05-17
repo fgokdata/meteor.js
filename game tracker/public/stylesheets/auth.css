@@ -1,0 +1,22 @@
+.auth-container {
+    min-height: 100dvh;
+    min-width: 100dvw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 75px 20px 40px;
+    gap: 10px;
+}
+
+.auth-container .glass-container {
+    width: 500px;
+    max-width: 90%;
+}
+
+.auth-link {
+    color: #fff;
+    float: right;
+    font-size: .8em;
+    font-weight: 800;
+}
