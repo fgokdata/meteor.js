@@ -8,39 +8,17 @@ FlowRouter.route('/', {
   },
 });
 
-FlowRouter.route('/register', {
-  name: 'register',
-  action() {
-    BlazeLayout.render('mainLayout', { main: 'register' });
-  },
-});
-
-FlowRouter.route('/login', {
-  name: 'login',
-  action() {
-    BlazeLayout.render('mainLayout', { main: 'login' });
-  },
-});
-
 FlowRouter.route('/add-game/:id?', {
   name: 'addGame',
   action() {
-    if(Meteor.userId()) {
-      BlazeLayout.render('mainLayout', { main: 'addGame' });
-    } else {
-      FlowRouter.go('register')
-    }
+    BlazeLayout.render('mainLayout', { main: 'addGame' });
   },
 });
 
 FlowRouter.route('/games-list', {
   name: 'gamesList',
   action() {
-    if(Meteor.userId()) {
-      BlazeLayout.render('mainLayout', { main: 'gamesList' });
-    } else {
-      FlowRouter.go('register')
-    }
+    BlazeLayout.render('mainLayout', { main: 'gamesList' });
   },
 });
 
