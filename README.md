@@ -18,6 +18,7 @@ Pour utiliser l'application, suivez ces étapes :
 5. Supprimez une partie ou une session en cliquant sur le bouton "Supprimer" sur la page correspondante.
 
 Difficultés rencontrées
+
 L'une des principales difficultés rencontrées lors du développement de ce projet a été la mise en place du système de taux de réussite à code couleur. Je devais comprendre comment calculer le taux de victoire en fonction du nombre de parties gagnées et jouées, puis attribuer la couleur appropriée en fonction du taux de victoire calculé. Après quelques recherches et expérimentations, j'ai réussi à implémenter cette fonctionnalité en utilisant une instruction conditionnelle dans le modèle Blaze.
 
 
