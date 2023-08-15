@@ -1,0 +1,16 @@
+<template name="gamesList">
+    <div>
+        {{#each game in gamesList}}
+            <div class="card">
+                <img src="{{game.photoUrl}}" alt="Game Image" class="game-image" onerror="this.src='https://via.placeholder.com/376x260';">
+                <a href="{{urlFor 'addGame' id=game._id}}">
+                    <h2 class="game-name">{{game.name}}</h2>
+                </a>
+                <div>
+                    <button class="add-game-session-btn" data-id="{{game._id}}">Add Game Session</button>
+                    <button class="delete-game-btn" data-id="{{game._id}}">Delete Game</button>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</template>

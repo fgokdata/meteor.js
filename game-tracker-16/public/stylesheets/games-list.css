@@ -1,0 +1,167 @@
+.games-list-container {
+    padding: 40px;
+    margin-top: 30px;
+}
+
+.games-list-container .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.games-list {
+    display: flex;
+    gap: calc(4%/3);
+    flex-wrap: wrap;
+}
+
+.games-list .game-card {
+    flex-basis: 24%;
+    margin-bottom: 15px;
+}
+
+.games-list .game-card .game-name {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 900;
+    text-shadow: 1px 1px 5px rgb(90, 90, 90);
+    margin-top: 10px;
+}
+
+.games-list .game-card .games-played {
+    color: #000000;
+    font-size: .8em;
+    font-weight: 700;
+}
+
+.games-list .game-card .win-rate {
+    color: #fff;
+    font-size: .8em;
+    font-weight: 600;
+}
+
+.games-list .game-card .card-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.games-list .game-card .card-btns button {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.games-list img {
+    width: 100%;
+    border-radius: 10px;
+    height: 170px;
+    object-fit: cover;
+}
+
+.no-game {
+    margin: 20px auto;
+    color: #fff;
+    text-align: center;
+}
+
+
+/* Modal */
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    overflow: auto;
+    display: flex;
+}
+
+.modalDialog>div {
+    width: 400px;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.modalDialog .modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-modal {
+    color: #fff;
+    line-height: 25px;
+    right: 10px;
+    text-align: center;
+    top: 10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+/* Media Queries */
+
+/* Styles for screens smaller than 480px */
+@media only screen and (max-width: 480px) {
+    .games-list .game-card {
+        flex-basis: 100%;
+    }
+}
+
+/* Styles for screens between 481px and 575px */
+@media (min-width: 481px) and (max-width: 575px) {
+    .games-list .game-card {
+        flex-basis: 49%;
+    }
+}
+
+
+/* Styles for screens between 576px and 991px */
+@media (min-width: 576px) and (max-width: 991px) {
+    .games-list {
+        gap: calc(3%/2);
+    }
+
+    .games-list .game-card {
+        flex-basis: 48%;
+    }
+}
+
+/* Styles for screens between 992px and 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .games-list {
+        gap: calc(2%/1);
+    }
+
+    .games-list .game-card {
+        flex-basis: 32%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Styles for screens 1200px and larger */
+@media (min-width: 1200px) {
+    .games-list {
+        gap: calc(1%/1);
+    }
+
+    .games-list .game-card {
+        flex-basis: 24%;
+        margin-bottom: 15px;
+    }
+}

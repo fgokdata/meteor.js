@@ -1,0 +1,17 @@
+.home-container {
+    min-height: 100dvh;
+    min-width: 100dvw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.home-heading {
+    font-size: 4em;
+    color: #fff;
+}
+
+.home-links {
+    margin-top: 40px;
+}

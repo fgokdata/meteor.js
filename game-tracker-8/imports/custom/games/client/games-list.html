@@ -1,0 +1,59 @@
+<template name="gamesList">
+    <div class="games-list-container">
+        <div class="header">
+            <h1 class="page-heading">Games List</h1>
+            <a href="{{ urlFor 'addGame' }}"><button class="tracker-btn">Add Game</button></a>
+        </div>
+        <div class="games-list">
+            {{#each game in gamesList}}
+                <div class="game-card glass-container">
+                    <img src="{{game.photoUrl}}" alt="Game Image" class="game-image" onerror="this.src='https://via.placeholder.com/376x260';">
+                    <a href="{{urlFor 'addGame' id=game._id}}">
+                        <h3 class="game-name">{{game.name}}</h3>
+                    </a>
+                    <div class="card-btns">
+                        <button class="add-game-session-btn tracker-btn" data-id="{{game._id}}">New Session</button>
+                        <button class="delete-game-btn tracker-btn danger" data-id="{{game._id}}">Delete</button>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div id="modal-parent"></div>
+</template>
+
+<template name="sessionModal">
+    <div id="newSession" class="modalDialog">
+        <div class="glass-container">
+            <div class="modal-header">
+                <h2>Add Session</h2>
+                <a href="#" title="Close" class="close-modal">&times;</a>
+            </div>	
+            <div class="modal-body">
+                <form id="add-session-form">
+                    <div class="form-group">
+                        <label for="session-date">Date</label>
+                        <input type="date" class="form-control" name="session-date" id="session-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="session-players">No. of players</label>
+                        <input type="number" class="form-control" name="session-players" id="session-players" placeholder="No. of players" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="session-duration">Duration (in minutes)</label>
+                        <input type="number" class="form-control" name="session-duration" id="session-duration" placeholder="Duration" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="session-outcome">Outcome</label>
+                        <select name="session-outcome" id="session-outcome" required>
+                            <option value="No Outcome">No Outcome</option>
+                            <option value="Win">Win</option>
+                            <option value="Lost">Lost</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="tracker-btn">Submit Session</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

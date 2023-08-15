@@ -1,0 +1,132 @@
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    background: hsla(252, 40%, 29%, 1);
+    background: linear-gradient(90deg, hsla(252, 40%, 29%, 1) 0%, hsla(270, 77%, 71%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(252, 40%, 29%, 1) 0%, hsla(270, 77%, 71%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(252, 40%, 29%, 1) 0%, hsla(270, 77%, 71%, 1) 100%);
+    min-width: 100dvw;
+    min-height: 100dvh;
+    padding: 0 !important;
+}
+
+.page-heading {
+    font-size: 2em;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-weight: 700;
+    display: block;
+    line-height: 25px;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+form :is(input, select) {
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+}
+
+form :is(input, select):focus {
+    outline: none;
+}
+
+form button[type=submit] {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+/* Glass card */
+.glass-container {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.43);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    width: fit-content;
+    padding: 20px;
+}
+
+.glass-container h2 {
+    font-size: 1.5em;
+    margin:5px 0 15px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* header */
+header {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.43);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    padding: 15px 25px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+header .header-brand {
+    font-weight: 900;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+
+/* Button */
+.tracker-btn {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 10px 0;
+}
+
+.tracker-btn.danger {
+    background: red;
+}
+
+.tracker-btn:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .tracker-btn {
+    padding: 0.25em 0.75em;
+  }
+}
