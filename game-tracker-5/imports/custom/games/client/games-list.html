@@ -1,0 +1,22 @@
+<template name="gamesList">
+    <div class="games-list-container">
+        <div class="header">
+            <h1 class="page-heading">Games List</h1>
+            <a href="{{ urlFor 'addGame' }}"><button class="tracker-btn">Add Game</button></a>
+        </div>
+        <div class="games-list">
+            {{#each game in gamesList}}
+                <div class="game-card glass-container">
+                    <img src="{{game.photoUrl}}" alt="Game Image" class="game-image" onerror="this.src='https://via.placeholder.com/376x260';">
+                    <a href="{{urlFor 'addGame' id=game._id}}">
+                        <h3 class="game-name">{{game.name}}</h3>
+                    </a>
+                    <div class="card-btns">
+                        <button class="add-game-session-btn tracker-btn" data-id="{{game._id}}">New Session</button>
+                        <button class="delete-game-btn tracker-btn danger" data-id="{{game._id}}">Delete</button>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>

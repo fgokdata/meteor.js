@@ -1,0 +1,13 @@
+.add-game-container {
+    min-height: 100dvh;
+    min-width: 100dvw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.add-game-container .glass-container {
+    width: 400px;
+    max-width: 80%;
+}

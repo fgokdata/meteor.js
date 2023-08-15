@@ -1,0 +1,44 @@
+.games-list-container {
+    padding: 40px;
+}
+
+.games-list-container .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.games-list {
+    display: flex;
+    gap: calc(4%/3);
+    flex-wrap: wrap;
+}
+
+.games-list .game-card {
+    flex-basis: 24%;
+    margin-bottom: 15px;
+}
+
+.games-list .game-card .game-name{
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 900;
+    text-shadow: 1px 1px 5px rgb(90, 90, 90);
+    margin-top: 10px;
+}
+
+.games-list .game-card .card-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.games-list .game-card .card-btns button {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.games-list img {
+    width: 100%;
+    border-radius: 10px;
+    height: 170px;
+    object-fit: cover;
+}
