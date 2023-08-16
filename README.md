@@ -7,7 +7,7 @@ Installation
 Pour installer et exécuter l'application, procédez comme suit :
 1. Clonez le référentiel GitHub sur votre machine locale.
 2. Installez Meteor.js si vous ne l'avez pas déjà fait.
-3. Ouvrez la ligne de commande et accédez au répertoire du projet.
+3. Ouvrez la ligne de commande et accédez au répertoire du projet "game-tracker-16".
 4. Exécutez « meteor npm install » pour installer les dépendances requises.
 5. Exécutez « npm run start » pour obtenir le lien de l'application.
 
