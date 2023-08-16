@@ -2,6 +2,15 @@ Traqueur de jeu de société
 
 Il s'agit d'une application Web Meteor.js construite à l'aide du système de modèles Blaze et de FlowRouter pour le routage. Le but de cette application est de permettre aux utilisateurs de suivre leurs sessions de jeux de société, y compris le nombre de jeux joués, le taux de victoire et d'autres détails pour chaque jeu.
 
+Installation
+
+Pour installer et exécuter l'application, procédez comme suit :
+1. Clonez le référentiel GitHub sur votre machine locale.
+2. Installez Meteor.js si vous ne l'avez pas déjà fait.
+3. Ouvrez la ligne de commande et accédez au répertoire du projet.
+4. Exécutez « meteor npm install » pour installer les dépendances requises.
+5. Exécutez « npm run start » pour obtenir le lien de l'application.
+
 Caractéristiques
 
 • Créer un nouveau jeu avec le nom et l'URL de la photo
